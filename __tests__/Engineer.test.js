@@ -34,7 +34,7 @@ test("gets Engineer's name from prompt", () => {
 });
 //get id
 test("gets Engineer's id from prompt", () => {
-    const engineer = new Engineer("", "45", "", "");
+    const engineer = new Engineer("", "45", "", "", "");
 
     expect(engineer.getId()).toBe("id");
 });
