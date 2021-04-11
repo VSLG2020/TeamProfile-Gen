@@ -1,0 +1,23 @@
+{
+  "name": "teamprof-gen",
+  "version": "1.0.0",
+  "description": "e a webpage that displays my team's basic info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VSLG2020/TeamProfile-Gen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VSLG2020/TeamProfile-Gen/issues"
+  },
+  "homepage": "https://github.com/VSLG2020/TeamProfile-Gen#readme",
+  "dependencies": {
+    "inquirer": "^8.0.0",
+    "jest": "^26.6.3"
+  }
+}
