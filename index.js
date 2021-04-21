@@ -9,7 +9,7 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 // links to pages to generate content
 const generatePage = require('./src/generate-templates')
-const writeHTML = require('./generate-site')
+const writeHTML = require('./utils/generate-site')
 //team array
 const team = [];
 
