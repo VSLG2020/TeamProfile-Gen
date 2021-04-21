@@ -16,34 +16,35 @@ const Employee = require('../lib/Employee');
 //const role= new role(name,id,email);
 //expect(role.get()).toEqual(expect.string'name'));}
 
-test("creates an employee object", () => {
-    const employee = new Employee("Gina", "1", "Gina@Ginamail.com", "Intern");
-    expect(employee.name).toBe("Gina");
-    expect(employee.id).toBe("1");
-    expect(employee.email).toBe("Gina@Ginamail.com");
-    expect(employee.role).toBe("Intern");
+test('creates an employee object', () => {
+    const employee = new Employee('Gina', '1', 'Gina@Ginamail.com', 'Intern');
+    
+    expect(employee.name).toBe('Gina');
+    expect(employee.id).toBe('1');
+    expect(employee.email).toBe('Gina@Ginamail.com');
+    //expect(employee.role).toBe('Intern');
 });
 //get name
-test("gets employee's name from prompt", () => {
-    const employee = new Employee("Gina", "", "", "");
+test('gets employee name from prompt', () => {
+    const employee = new Employee('Gina', '1', 'Gina@Ginamail.com', 'Intern');
 
-    expect(employee.getName()).toBe("Gina");
+    expect(employee.getName()).toEqual('Gina');
 });
 //get id
-test("gets employee's id from prompt", () => {
-    const employee = new Employee("", "1", "", "");
+test('gets employee id from prompt', () => {
+    const employee = new Employee('Gina', '1', 'Gina@Ginamail.com', 'Intern');
 
-    expect(employee.getId()).toBe("id");
+    expect(employee.getId()).toEqual('1');
 });
 // get email
-test("gets the employee email from prompt", () => {
-    const employee = new Employee("", "", "Gina@Ginamail.com", "");
+test('gets the employee email from prompt', () => {
+    const employee = new Employee('Gina', '1', 'Gina@Ginamail.com', 'Intern');
 
-    expect(employee.getEmail()).toBe("email");
+    expect(employee.getEmail()).toEqual(expect.stringContaining('', '', 'Gina@Ginamail.com', ''));
 })
 // get role
-test("gets the employee role from prompt", () => {
-    const employee = new Employee("", "", "", "intern");
+test('gets the employee role from prompt', () => {
+    const employee = new Employee('Gina', '1', 'Gina@Ginamail.com', 'Intern');
 
-    expect(employee.getRole()).toBe("intern");
+    expect(employee.getRole()).toEqual(expect.stringContaining('', '', '', 'Intern'));
 })
