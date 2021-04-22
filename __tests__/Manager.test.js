@@ -10,8 +10,9 @@
 // getRole() // Overridden to return "Manager"
 
 //call in requier Manager
-//const { test, expect } = require("@jest/globals");
+const { test, expect } = require("@jest/globals");
 const Manager = require("../lib/Manager");
+const { number } = require("yargs");
 
 //create Manager tests
 //test("what the test does", function){
@@ -52,8 +53,12 @@ test("gets the Manager role from prompt", () => {
     expect(manager.getRole()).toEqual("Manager");
 })
 // get OfficeNumber
-test("gets the Manager OfficeNumber Name from prompt", () => {
-    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "3601234567");
+test('Entered an office', () =>{
+    const manager = new Manager(objectKeys= Object.keys(testManager))
+    keyGH = objectKeys[10]
 
-    expect(manager.getOfficeNumber()).toBe("3601234567");
+    expect(keyGH).toBe('officeNumber')
+
+    expect(manager.getofficeNumber).toEqual(expect.any(Number))
+
 })
