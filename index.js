@@ -32,7 +32,6 @@ function employeeQuestions() {
                 }
             },
             //get id
-
             {
                 type: 'input',
                 name: 'id',

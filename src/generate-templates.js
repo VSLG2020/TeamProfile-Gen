@@ -1,71 +1,104 @@
 
 //const data = require("../lib/Employee");
 
-const generateTeam = (data) => {
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
+const Manager = require("../lib/Manager");
 
-   
-        let createCards =""
-        for (let i = 0; i < data.length; i++) {
+const generateTeam = (dataArray) => {
 
-            let employeePosition = data.school || data.gitHub || data.officeNumber;
-            let role;
 
-            if (data === "gitHub") {
-                employeePosition = `<p><a href="https://github.com/${data.gitHub}">Github</a></p> `
-                role = "Engineer"
-            }
-            else if (data === "school") {
-                employeePosition = `<p> school: ${data.school}</p> `
-                role = "Intern"
-            }
-            else {
-                employeePosition = `<p> office number: ${data.officeNumber}</p> `
-                role = "Manager"
-            }
+    let createCards = ""
+    for (let i = 0; i < dataArray.length; i++) {
 
+         let employeeAttribute = dataArray[i].school || dataArray[i].gitHub || dataArray[i].officeNumber;
+         //let role= manager || intern || engineer ;
+         let objects = Object.keys(dataArray[i])
+         let employeePosition= objects[10]
+         let atttribute = employeePosition + ": " + employeeAttribute
+
+        // if (data === "gitHub") {
+        //     employeePosition = `<p><a href="https://github.com/${data.gitHub}">Github</a></p> `
+        //      role = "Engineer"
+        // }
+        // else if (data === "school") {
+        //     employeePosition = `<p> school: ${data.school}</p> `
+        //     role = "Intern"
+        // }
+        // else {
+        //     employeePosition = `<p> office number: ${data.officeNumber}</p> `
+        //      role = "Manager"
+        // }
+        if(employeePosition === undefined){
            
-        let { name, email, id} = data[i]
-        createCards += `
-        <div class="card col-4">
-            <div class="card-header">
-                <h4><b>${name}</b></h4>
-                <span><p>${role}</p><span>
-            </div>
-                    <div class="container">
-                        <p> ID: ${id}</p>
-                        <p> email: ${email}</p>
-                        <p> contact: ${employeePosition}</p>
-                    <div>
+            atttribute = " ";
             
-        </div>
-        `
-    
-        return `
-    <!DOCTYPE html>
-<html lang="en">
+            //console.log(atttribute)
+         
+        }else if(employeePosition === 'gitHub'){
+           
+            atttribute = (`GitHub : <a href="https://github.com/${data.gitHub}">Github</a> `)
+           
+           // console.log(atttribute)
+           }
+          
+           else{
+           
+           // console.log(atttribute)
+           
+         }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" html="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" html="ie=edge">
-    <title>Team Profile Generator</title>
-    <link rel="stylesheet" href="src/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
-<h1>My Team</h1>
-    <div class="data-cards">
-        <div class='container'>
-            <div class='row'>
-                ${createCards}
-            <div>
+        let { name, id, email, role } = dataArray[i]
+        createCards += `
+        <div class="card employee-card">
+        <div class="card-header">
+            <h2 class="card-title"><span>${name}</span></h2>
+            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${role}</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">${email}"</li>
+                <li class="list-group-item">${id}</li>
+                <li class="list-group-item">${employeeAttribute}</li>
+            </ul>
         </div>
     </div>
-    <footer class="container text-center py-3">
-    <h3 class="text-dark">&copy; ${new Date().getFullYear()} made by <a class="ml-2 my-1 px-2 py-1 text-dark"  href="https://github.com/VSLG2020"  target="_blank">VSLG</a></h3>
-    </footer>
-</body>
-</html>`;
+        `
+
+        return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" html="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" html="ie=edge">
+        <title>Employee Profiles</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="src/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+    <h1>Employee Profiles</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 jumbotron mb-3 team-heading">
+            <h1 class="text-center"><span style="font-size: 4.5rem;">My Team</span></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="team-area col-12 d-flex justify-content-center">
+                    ${createCards}
+             <div>
+        </div>
+    </div>
+        <footer class="container text-center py-3">
+        <h3 class="text-dark">&copy; ${new Date().getFullYear()} made by <a class="ml-2 my-1 px-2 py-1 text-dark"  href="https://github.com/VSLG2020"  target="_blank">VSLG</a></h3>
+        </footer>
+    </body>
+    </html>`;
     };
 }
 
