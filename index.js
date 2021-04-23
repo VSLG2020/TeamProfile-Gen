@@ -88,10 +88,10 @@ function employeeQuestions() {
                             }
                         }
                     }])
-                    .then(answers => {
-                        console.log(answers.officeNumber)
+                    .then(answers1 => {
+                        console.log(answers1.officeNumber)
 
-                        const defaultManager = new Manager(answers.name, answers.email, answers.id, answers.role, answers.officeNumber)
+                        const defaultManager = new Manager(answers.name, answers.email, answers.id, answers.role, answers1.officeNumber)
                         team.push(defaultManager);
                         addEmployee()
                     })
@@ -112,10 +112,10 @@ function employeeQuestions() {
                                 }
                             }
                         }])
-                    .then(answers => {
+                    .then(answers1 => {
                         console.log(answers.gitHub)
 
-                        const defaultEngineer = new Engineer(answers.name, answers.email, answers.id, answers.role, answers.gitHub)
+                        const defaultEngineer = new Engineer(answers.name, answers.email, answers.id, answers.role, answers1.gitHub)
                         team.push(defaultEngineer);
                         addEmployee()
                     })
@@ -136,8 +136,8 @@ function employeeQuestions() {
                         }
                     }])
                     // return intern
-                    .then(answers => {
-                        const defaultIntern = new Intern(answers.name, answers.email, answers.id, answers.role, answers.school)
+                    .then(answers1 => {
+                        const defaultIntern = new Intern(answers.name, answers.email, answers.id, answers.role, answers1.school)
                         team.push(defaultIntern);
                         addEmployee()
                     })
