@@ -12,7 +12,7 @@
 //call in requier Manager
 const { test, expect } = require("@jest/globals");
 const Manager = require("../lib/Manager");
-const { number } = require("yargs");
+
 
 //create Manager tests
 //test("what the test does", function){
@@ -20,45 +20,42 @@ const { number } = require("yargs");
 //expect(role.get()).toEqual(expect.string"name"));}
 
 test("creates a Manager object", ()=>{
-    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "3601234567");
+    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "1234567890");
     
     expect(manager.name).toBe("Delilah");
     expect(manager.id).toBe("15");
     expect(manager.email).toBe("Delilah@mail.com");
-    expect(manager.officeNumber).toBe("3601234567");
+    expect(manager.officeNumber).toBe("1234567890");
 });
 
 //get name
 test("gets Manager name from prompt", () => {
-    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "3601234567");
+    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "1234567890");
 
     expect(manager.getName()).toEqual("Delilah");
 });
 //get id
 test("gets Manager id from prompt", () => {
-    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "3601234567");
+    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "1234567890");
 
     expect(manager.getId()).toBe("15");
 });
 // get email
 test("gets the Manager email from prompt", () => {
-    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "3601234567");
+    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "1234567890");
 
     expect(manager.getEmail()).toEqual("Delilah@mail.com");
 })
 // get role
 test("gets the Manager role from prompt", () => {
-    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "3601234567");
+    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "1234567890");
 
     expect(manager.getRole()).toEqual("Manager");
 })
 // get OfficeNumber
 test('Entered an office', () =>{
-    const manager = new Manager(objectKeys= Object.keys(testManager))
-    keyGH = objectKeys[10]
-
-    expect(keyGH).toBe('officeNumber')
-
-    expect(manager.getofficeNumber).toEqual(expect.any(Number))
+    const manager = new Manager("Delilah", "15", "Delilah@mail.com", "1234567890");
+    
+    expect(manager.getOfficeNumber()).toEqual("1234567890");
 
 })

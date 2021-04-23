@@ -11,8 +11,8 @@ const Manager = require("./lib/Manager");
 const generatePage = require('./src/generate-templates');
 const writeHTML = require('./utils/generate-site');
 
-//team array
-const team = [];
+//data array
+const data = [];
 
 function employeeQuestions() {
     inquirer
@@ -91,7 +91,7 @@ function employeeQuestions() {
                         console.log(answers1.officeNumber)
 
                         const defaultManager = new Manager(answers.name, answers.email, answers.id, answers.role, answers1.officeNumber)
-                        team.push(defaultManager);
+                        data.push(defaultManager);
                         addEmployee()
                     })
                 //engineer 
@@ -115,7 +115,7 @@ function employeeQuestions() {
                         console.log(answers.gitHub)
 
                         const defaultEngineer = new Engineer(answers.name, answers.email, answers.id, answers.role, answers1.gitHub)
-                        team.push(defaultEngineer);
+                        data.push(defaultEngineer);
                         addEmployee()
                     })
                 //get intern
@@ -137,12 +137,12 @@ function employeeQuestions() {
                     // return intern
                     .then(answers1 => {
                         const defaultIntern = new Intern(answers.name, answers.email, answers.id, answers.role, answers1.school)
-                        team.push(defaultIntern);
+                        data.push(defaultIntern);
                         addEmployee()
                     })
             } else {
                 const defaultEmployee = new Employee(answers.name, answers.email, answers.id, answers.role)
-                team.push(defaultEmployee)
+                data.push(defaultEmployee)
                 addEmployee()
             }
             //add employee function
@@ -155,11 +155,11 @@ function employeeQuestions() {
                     }])
                     .then(res => {
                         if (res.addEmployee === true) {
-                            employeeQuestions(team)
+                            employeeQuestions(data)
                         } else {
-                            console.log('team', team)
-                            let cards = generatePage(team)
-                            writeHTML(cards)
+                            console.log('data', data)
+                            let createCards = generatePage(data)
+                            writeHTML(createCards)
 
                         }
 

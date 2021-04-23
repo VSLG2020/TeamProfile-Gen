@@ -1,63 +1,46 @@
+const data = require("../lib/Employee");
+//const Engineer = require("../lib/Engineer");
+//const Intern = require("../lib/Intern");
+//const Manager = require("../lib/Manager");
 
-//const data = require("../lib/Employee");
-
-const Engineer = require("../lib/Engineer");
-const Intern = require("../lib/Intern");
-const Manager = require("../lib/Manager");
-
-const generateTeam = (dataArray) => {
+const GenerateEmployee = (data) => {
 
 
     let createCards = ""
-    for (let i = 0; i < dataArray.length; i++) {
+    for (let i = 0; i < data.length; i++) {
 
-         let employeeAttribute = dataArray[i].school || dataArray[i].gitHub || dataArray[i].officeNumber;
-         //let role= manager || intern || engineer ;
-         let objects = Object.keys(dataArray[i])
-         let employeePosition= objects[10]
-         let atttribute = employeePosition + ": " + employeeAttribute
+         let employeeAttribute = data.school || data.gitHub || data.officeNumber;
+         let role= "Manager" || "Intern" || "Engineer" ;
+        //  let objects = Object.keys(data[i])
+        //let employeePosition= role;
+         //let atttribute = employeePosition + ": " + employeeAttribute
 
-        // if (data === "gitHub") {
-        //     employeePosition = `<p><a href="https://github.com/${data.gitHub}">Github</a></p> `
-        //      role = "Engineer"
-        // }
-        // else if (data === "school") {
-        //     employeePosition = `<p> school: ${data.school}</p> `
-        //     role = "Intern"
-        // }
-        // else {
-        //     employeePosition = `<p> office number: ${data.officeNumber}</p> `
-        //      role = "Manager"
-        // }
-        if(employeePosition === undefined){
-           
-            atttribute = " ";
-            
-            //console.log(atttribute)
-         
-        }else if(employeePosition === 'gitHub'){
-           
-            atttribute = (`GitHub : <a href="https://github.com/${data.gitHub}">Github</a> `)
-           
-           // console.log(atttribute)
-           }
-          
-           else{
-           
-           // console.log(atttribute)
-           
-         }
+        if (data === "gitHub") {
+            employeePosition = `<p><a href="https://github.com/${data.gitHub}">Github</a></p> `
+             role = "Engineer"
+        }
+        else if (data === "school") {
+            employeePosition = `<p> school: ${data.school}</p> `
+            role = "Intern"
+        }
+        else {
+            employeePosition = `<p> office number: ${data.officeNumber}</p> `
+             role = "Manager"
+        }
+        
+        /////////////////////////////////////////////
 
-        let { name, id, email, role } = dataArray[i]
+        let { name, id, email } = data[i]
         createCards += `
         <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title"><span>${name}</span></h2>
-            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${role}</h3>
+            <h3 class="card-title">
+            <i class="fas fa-mug-hot mr-2"></i>${role}</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item">${email}"</li>
+                <li class="list-group-item">${email}</li>
                 <li class="list-group-item">${id}</li>
                 <li class="list-group-item">${employeeAttribute}</li>
             </ul>
@@ -102,4 +85,4 @@ const generateTeam = (dataArray) => {
     };
 }
 
-module.exports = generateTeam;
+module.exports = GenerateEmployee;
